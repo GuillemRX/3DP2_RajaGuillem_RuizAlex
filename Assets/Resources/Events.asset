@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 204ffb61949cc3a43862dc38c62c1f49, type: 3}
+  m_Name: Events
+  m_EditorClassIdentifier: 
+  inputActions:
+    onLook: 0
+    onMove: 1
+    onJump: 2
+    onLeftClick: 3
+    onRightClick: 4
+    onScroll: 11
+  playerActions:
+    onPlaceBluePortal: 5
+    onPreviewBluePortal: 6
+    onPreviewOrangePortal: 7
+    onPlaceOrangePortal: 8
+    onGravityGunGrab: 9
+  onTeleportObject: 10

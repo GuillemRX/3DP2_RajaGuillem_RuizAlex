@@ -3,7 +3,10 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Orange Portal
+  - Blue Portal
+  - Cube
   layers:
   - Default
   - TransparentFX
@@ -11,15 +14,15 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Dont Render
+  - Blue Portal
+  - Orange Portal
+  - Portal Collider
+  - Portal Traveller
+  - Portal Surface
+  - Entity
+  - Prop
+  - Portal Wall
   - 
   - 
   - 

@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ccd8e7281ef3dc4cb064ef2ac86a371, type: 3}
+  m_Name: GameSettings
+  m_EditorClassIdentifier: 
+  gravityGunGrabbingDistance: 20
+  gravityGunCarryingDistance: 3
+  gravityGunCarryingSmoothing: 0.1
+  gravityGunShootingForce: 1000
+  portalSurface:
+    serializedVersion: 2
+    m_Bits: 2048
+  surfacesToPlacePortals:
+    serializedVersion: 2
+    m_Bits: 16384
+  player:
+    serializedVersion: 2
+    m_Bits: 4096
+  entitiesAffectedByGravityGun:
+    serializedVersion: 2
+    m_Bits: 8192
