@@ -47,7 +47,13 @@ namespace GravityGun
 
             _pickedTarget.isKinematic = false;
             _pickedTarget = null;
-            if(_pickedTargetState) _pickedTargetState.stopHolding();
+
+            EventManager.TriggerEvent(Events.Instance.playerActions.onGravityGunDrop, new Dictionary<string, object>
+            {
+                {"source", gameObject}
+            });
+
+            if (_pickedTargetState) _pickedTargetState.stopHolding();
             _pickedTargetState = null;
         }
 
@@ -67,14 +73,23 @@ namespace GravityGun
 
                 _pickedTarget = hit.collider.gameObject.GetComponent<Rigidbody>();
                 _pickedTargetState = hit.collider.gameObject.GetComponent<PickableObject>();
-                if(_pickedTargetState) _pickedTargetState.startHolding();
+                if (_pickedTargetState) _pickedTargetState.startHolding();
 
                 _pickedTarget.isKinematic = true;
+                EventManager.TriggerEvent(Events.Instance.playerActions.onGravityGunGrab, new Dictionary<string, object>
+                {
+                    {"source", gameObject}
+                });
             }
             else
             {
                 GravityGunUtilities.ShootObject(_pickedTarget);
                 _pickedTarget = null;
+                EventManager.TriggerEvent(Events.Instance.playerActions.onGravityGunThrow,
+                    new Dictionary<string, object>
+                    {
+                        {"source", gameObject}
+                    });
             }
         }
     }

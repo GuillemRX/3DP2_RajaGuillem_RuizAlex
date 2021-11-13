@@ -23,13 +23,10 @@ namespace Player
         private void Update()
         {
             var rotation = _input * (sensitivity * Time.deltaTime);
-            transform.Rotate(Vector3.up * rotation.x);
-            pitch.Rotate(Vector3.right * rotation.y);
-
-            // _targetRotation += _input * (sensitivity * Time.deltaTime);
-            // _targetRotation.y = Mathf.Clamp(_targetRotation.y, pitchRange.min, pitchRange.max);
-            // transform.localEulerAngles = Vector3.up * _targetRotation.x;
-            // pitch.localEulerAngles = Vector3.right * _targetRotation.y;
+            transform.Rotate(0, rotation.x, 0);
+            var pitchRotation = pitch.rotation.eulerAngles + new Vector3(rotation.y, 0f, 0f);
+            pitchRotation.x = ClampAngle(pitchRotation.x, pitchRange.min, pitchRange.max);
+            pitch.eulerAngles = pitchRotation;
         }
 
         private void OnEnable()
@@ -45,6 +42,13 @@ namespace Player
         private void OnLook(Dictionary<string, object> message)
         {
             _input = (Vector2) message["value"];
+        }
+
+        private float ClampAngle(float angle, float min, float max)
+        {
+            if (angle < 0f) angle = 360 + angle;
+            if (angle > 180f) return Mathf.Max(angle, 360 + min);
+            return Mathf.Min(angle, max);
         }
     }
 }

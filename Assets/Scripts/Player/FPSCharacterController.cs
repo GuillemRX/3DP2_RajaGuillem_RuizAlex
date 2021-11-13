@@ -16,9 +16,11 @@ namespace Player
         private bool _isJumping;
         private float _jumpSpeed, _gravity;
         private Rigidbody _rigidbody;
+        private GroundDetector _groundDetector;
 
         private void Awake()
         {
+            _groundDetector = GetComponentInChildren<GroundDetector>();
             _rigidbody = GetComponent<Rigidbody>();
             _horizontalVelocity = Vector2.zero;
             _gravity = 2 * jumpHeight / (jumpApexTime * jumpApexTime);
@@ -32,7 +34,7 @@ namespace Player
             var t = transform;
             var x = _horizontalVelocity.x * t.right;
             var z = _horizontalVelocity.y * t.forward;
-            var y = (_rigidbody.velocity.y - _gravity * Time.deltaTime) * Vector3.up;
+            var y = (_rigidbody.velocity.y - _gravity * Time.fixedDeltaTime) * Vector3.up;
             
             _rigidbody.velocity = x + y + z;
 
@@ -66,8 +68,8 @@ namespace Player
         {
             _isJumping = (bool) message["value"];
             
-            if (!_isJumping) return;
-            
+            if (!_isJumping || !_groundDetector.IsGrounded) return;
+
             var velocity = _rigidbody.velocity;
             velocity = new Vector3(velocity.x, _jumpSpeed, velocity.z);
             _rigidbody.velocity = velocity;

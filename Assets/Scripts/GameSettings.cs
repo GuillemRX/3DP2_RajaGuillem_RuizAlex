@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Audio;
 using UnityEngine;
 using Utilities.Singleton;
 
@@ -14,4 +15,14 @@ public class GameSettings : SingletonScriptableObject<GameSettings>
     public LayerMask surfacesToPlacePortals;
     public LayerMask player;
     public LayerMask entitiesAffectedByGravityGun;
+    public LayerMask playerGround;
+    public Sound bluePortalSFX;
+    public Sound orangePortalSFX;
+    public Sound travelPortalSFX;
+    public Sound gravityGunGrabSFX;
+    public Sound gravityGunDropSFX;
+    public Sound gravityGunThrowSFX;
+    public Sound buttonPressedSFX;
+    public Sound buttonReleasedSFX;
+    public Sound[] collisionSFX;
 }
