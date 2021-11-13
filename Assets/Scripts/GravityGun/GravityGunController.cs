@@ -8,6 +8,7 @@ namespace GravityGun
     {
         private Vector3 _currentPosition, _currentForward;
         private Rigidbody _pickedTarget;
+        private PickableObject _pickedTargetState;
 
         private void Update()
         {
@@ -46,6 +47,8 @@ namespace GravityGun
 
             _pickedTarget.isKinematic = false;
             _pickedTarget = null;
+            if(_pickedTargetState) _pickedTargetState.stopHolding();
+            _pickedTargetState = null;
         }
 
         private void OnLeftClick(Dictionary<string, object> message)
@@ -63,6 +66,9 @@ namespace GravityGun
                 if (!GravityGunUtilities.RayCastGravityObject(ray, out var hit)) return;
 
                 _pickedTarget = hit.collider.gameObject.GetComponent<Rigidbody>();
+                _pickedTargetState = hit.collider.gameObject.GetComponent<PickableObject>();
+                if(_pickedTargetState) _pickedTargetState.startHolding();
+
                 _pickedTarget.isKinematic = true;
             }
             else

@@ -25,7 +25,7 @@ namespace Player
             _jumpSpeed = 2 * jumpHeight / jumpApexTime;
         }
 
-        private void Update()
+        private void FixedUpdate()
         {
             _horizontalVelocity = GetHorizontalVelocity();
 
