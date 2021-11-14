@@ -9,6 +9,7 @@ TagManager:
   - Cube
   - Companion
   - dead-zone
+  - Turret
   layers:
   - Default
   - TransparentFX

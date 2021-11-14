@@ -13,6 +13,10 @@ public class SimpleHealthSystem : MonoBehaviour
     Vector3 checkpoint_position;
 
    
+    void Start(){
+        isAlive =true;
+    }
+
     public void Kill(){
         if(isAlive){
             isAlive = false;
@@ -24,11 +28,11 @@ public class SimpleHealthSystem : MonoBehaviour
     public void SpawnOnLastCheckpoint(){
         Debug.Log("SPAWNED!");
         gameObject.transform.position = checkpoint_position;
-        isAlive = true;
+        Invoke("SetAlive",0.2f);
     }
 
-    public void logggg(){
-        Debug.Log("WORKS");
+    void SetAlive(){
+        isAlive = true;
     }
 
     public void SetCheckpoint(Vector3 _checkpoint){

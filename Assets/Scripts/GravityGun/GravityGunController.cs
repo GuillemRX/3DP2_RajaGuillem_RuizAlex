@@ -84,6 +84,8 @@ namespace GravityGun
             else
             {
                 GravityGunUtilities.ShootObject(_pickedTarget);
+                Turret turret = _pickedTarget.gameObject.GetComponent<Turret>();
+                if(turret) turret.StopTurret();
                 _pickedTarget = null;
                 EventManager.TriggerEvent(Events.Instance.playerActions.onGravityGunThrow,
                     new Dictionary<string, object>

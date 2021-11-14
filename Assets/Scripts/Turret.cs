@@ -78,4 +78,8 @@ public class Turret : MonoBehaviour
         }
 
     }
+
+    public void StopTurret(){
+        isBeamWorking = false;
+    }
 }
