@@ -28,11 +28,11 @@ public class Turret : MonoBehaviour
     void Update()
     {
         RaycastHit raycastHit;
-        Physics.Raycast(new Ray(laserOutput.transform.position, laserOutput.transform.forward),
+        Physics.Raycast(new Ray(laserOutput.transform.position, laserOutput.transform.TransformDirection(Vector3.forward)),
             out raycastHit, maxDistance, collisionLayerMask.value);
 
         if(raycastHit.transform !=null){
-            endRaycastPosition = raycastHit.transform.position;
+            endRaycastPosition = raycastHit.point;
         }else{
             endRaycastPosition= laserOutput.transform.TransformDirection(Vector3.forward) * maxDistance;
         }
