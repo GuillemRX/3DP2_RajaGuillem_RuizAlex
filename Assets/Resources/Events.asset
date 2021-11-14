@@ -19,10 +19,5 @@ MonoBehaviour:
     onLeftClick: 3
     onRightClick: 4
     onScroll: 11
-  playerActions:
-    onPlaceBluePortal: 5
-    onPreviewBluePortal: 6
-    onPreviewOrangePortal: 7
-    onPlaceOrangePortal: 8
-    onGravityGunGrab: 9
   onTeleportObject: 10
+  onButtonPressed: 100

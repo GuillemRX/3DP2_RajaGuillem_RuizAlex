@@ -8,6 +8,9 @@ public class Events : SingletonScriptableObject<Events>
     public InputActions inputActions;
     public string onTeleportObject;
 
+    public string onButtonPressed;
+    
+
     [Serializable]
     public struct InputActions
     {

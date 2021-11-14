@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ccd8e7281ef3dc4cb064ef2ac86a371, type: 3}
   m_Name: GameSettings
   m_EditorClassIdentifier: 
-  gravityGunGrabbingDistance: 20
+  gravityGunGrabbingDistance: 5
   gravityGunCarryingDistance: 3
   gravityGunCarryingSmoothing: 0.1
   gravityGunShootingForce: 1000
