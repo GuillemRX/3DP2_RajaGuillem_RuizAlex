@@ -11,8 +11,6 @@ public class Events : SingletonScriptableObject<Events>
     public string onButtonReleased;
     public InputActions inputActions;
     public PlayerActions playerActions;
-
-    public string onButtonPressed;
     
 
     [Serializable]

@@ -19,9 +19,18 @@ public class WeightedButton : MonoBehaviour
 
     void OnTriggerEnter(Collider other) {
         PickableObject objectState = other.gameObject.GetComponent<PickableObject>();
-        
+        if(companionWeight == weight.big && other.transform.localScale.x < 1.2f) return;
         if(other.gameObject.tag == "Companion" && objectState && !objectState.isBeingHolded()){
-            EventManager.TriggerEvent(Events.Instance.onButtonPressed, new Dictionary<string, object>(){
+            EventManager.TriggerEvent("button_pressed", new Dictionary<string, object>(){
+                {"id",doorId}
+            });
+        }
+            
+    }
+
+    void OnTriggerExit(Collider other) {
+        if(other.gameObject.tag == "Companion" ){
+            EventManager.TriggerEvent("button_released", new Dictionary<string, object>(){
                 {"id",doorId}
             });
         }

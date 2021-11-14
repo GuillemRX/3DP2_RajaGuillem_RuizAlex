@@ -7,22 +7,21 @@ public class Door : MonoBehaviour
 {
     [SerializeField] private Transform doorTransform;
 
-    private float _originalPositionY, _finalPositionY;
+    private Vector3 _originalPosition;
 
     [SerializeField]
-    private float _offsetY;
+    private Vector3 _finalPosition;
 
     private void Awake()
     {
-        _originalPositionY = doorTransform.position.y;
-        _finalPositionY = _originalPositionY - _offsetY;
+        _originalPosition = doorTransform.position;
     }
 
     public void OpenDoor(){
-        doorTransform.DOMoveY(_finalPositionY, 0.5f);
+        doorTransform.DOMove(_finalPosition, 1f);
     }
 
     public void CloseDoor(){
-        doorTransform.DOMoveY(_originalPositionY, 0.5f);
+        doorTransform.DOMove(_originalPosition, 1f);
     }
 }

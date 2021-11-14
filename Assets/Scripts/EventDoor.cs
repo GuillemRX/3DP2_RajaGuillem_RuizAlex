@@ -9,17 +9,28 @@ public class EventDoor : Door
     string doorId;
 
      void OnEnable(){
-        EventManager.StartListening(Events.Instance.onButtonPressed, EventExecuted);
+        EventManager.StartListening("button_pressed", EventOpenDoorExecuted);
+        EventManager.StartListening("button_released", EventCloseDoorExecuted);
     }
 
     void OnDisable(){
-        EventManager.StopListening(Events.Instance.onButtonPressed, EventExecuted);
+        EventManager.StopListening("button_pressed", EventOpenDoorExecuted);
+        EventManager.StopListening("button_released", EventCloseDoorExecuted);
     }
 
     
-    void EventExecuted(Dictionary<string,object> args){
+    void EventOpenDoorExecuted(Dictionary<string,object> args){
+        
         if((string)args["id"] == doorId){
             OpenDoor();
+        }
+        
+    }
+
+    void EventCloseDoorExecuted(Dictionary<string,object> args){
+        
+        if((string)args["id"] == doorId){
+            CloseDoor();
         }
         
     }
