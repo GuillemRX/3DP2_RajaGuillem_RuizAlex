@@ -55,5 +55,10 @@ namespace Input
                 {"value", value.Get<float>()}
             });
         }
+
+        private void OnRespawn(InputValue value)
+        {
+            EventManager.TriggerEvent("player_spawned", null);
+        }
     }
 }
