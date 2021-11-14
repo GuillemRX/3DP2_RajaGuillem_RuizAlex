@@ -14,6 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   onTeleportObject: 0
   onObjectCollision: 1
+  onButtonPressed: 55
+  onButtonReleased: 
   inputActions:
     onLook: 101
     onMove: 102
