@@ -1,14 +1,12 @@
 using System.Collections.Generic;
-using System.Numerics;
 using DG.Tweening;
 using UnityEngine;
 using Utilities;
 using Utilities.Singleton;
-using Vector3 = UnityEngine.Vector3;
 
 namespace Portal
 {
-    public class PortalPreviewController : SingletonMonoBehaviour<PortalPreviewController>
+    public class PortalPositionController : SingletonMonoBehaviour<PortalPositionController>
     {
         private Vector3 _originalBluePortalLocalScale, _originalOrangePortalLocalScale;
         private bool _previewBluePortal, _previewOrangePortal;
@@ -53,11 +51,25 @@ namespace Portal
             {
                 if (value > 0) orangePreview.transform.localScale += Vector3.one * 0.05f;
                 if (value < 0) orangePreview.transform.localScale -= Vector3.one * 0.05f;
+                orangePreview.transform.localScale = new Vector3(
+                    Mathf.Clamp(orangePreview.transform.localScale.x, _originalOrangePortalLocalScale.x * 0.5f,
+                        _originalOrangePortalLocalScale.x * 2f),
+                    Mathf.Clamp(orangePreview.transform.localScale.y, _originalOrangePortalLocalScale.y * 0.5f,
+                        _originalOrangePortalLocalScale.y * 2f),
+                    Mathf.Clamp(orangePreview.transform.localScale.z, _originalOrangePortalLocalScale.z * 0.5f,
+                        _originalOrangePortalLocalScale.z * 2f));
             }
             else if (bluePreview.activeSelf)
             {
                 if (value > 0) bluePreview.transform.localScale += Vector3.one * 0.05f;
                 if (value < 0) bluePreview.transform.localScale -= Vector3.one * 0.05f;
+                bluePreview.transform.localScale = new Vector3(
+                    Mathf.Clamp(bluePreview.transform.localScale.x, _originalBluePortalLocalScale.x * 0.5f,
+                        _originalBluePortalLocalScale.x * 2f),
+                    Mathf.Clamp(bluePreview.transform.localScale.y, _originalBluePortalLocalScale.y * 0.5f,
+                        _originalBluePortalLocalScale.y * 2f),
+                    Mathf.Clamp(bluePreview.transform.localScale.z, _originalBluePortalLocalScale.z * 0.5f,
+                        _originalBluePortalLocalScale.z * 2f));
             }
         }
 
@@ -79,6 +91,11 @@ namespace Portal
                 portal.transform.rotation = preview.transform.rotation;
                 portal.transform.localScale = Vector3.one * 0.01f;
                 portal.transform.DOScale(preview.transform.localScale, 0.3f);
+                EventManager.TriggerEvent(Events.Instance.playerActions.onPlaceOrangePortal,
+                    new Dictionary<string, object>
+                    {
+                        {"source", portal.gameObject}
+                    });
             }
         }
 
@@ -100,6 +117,11 @@ namespace Portal
                 portal.transform.rotation = preview.transform.rotation;
                 portal.transform.localScale = Vector3.one * 0.01f;
                 portal.transform.DOScale(preview.transform.localScale, 0.3f);
+                EventManager.TriggerEvent(Events.Instance.playerActions.onPlaceBluePortal,
+                    new Dictionary<string, object>
+                    {
+                        {"source", portal.gameObject}
+                    });
             }
         }
 

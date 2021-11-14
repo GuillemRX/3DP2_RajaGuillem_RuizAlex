@@ -28,3 +28,51 @@ MonoBehaviour:
   entitiesAffectedByGravityGun:
     serializedVersion: 2
     m_Bits: 8192
+  playerGround:
+    serializedVersion: 2
+    m_Bits: 24577
+  bluePortalSFX:
+    audioClip: {fileID: 8300000, guid: 24f6a32f61736b24ea62c1ed373fcb9d, type: 3}
+    volume: 100
+    loop: 0
+  orangePortalSFX:
+    audioClip: {fileID: 8300000, guid: 24f6a32f61736b24ea62c1ed373fcb9d, type: 3}
+    volume: 100
+    loop: 0
+  travelPortalSFX:
+    audioClip: {fileID: 8300000, guid: 0a48c8dee8b5ea24e846f66220906d95, type: 3}
+    volume: 100
+    loop: 0
+  gravityGunGrabSFX:
+    audioClip: {fileID: 8300000, guid: 535ce4b44e33cde46b7dc753e9aac1f8, type: 3}
+    volume: 100
+    loop: 0
+  gravityGunDropSFX:
+    audioClip: {fileID: 8300000, guid: 225aab4c3c20c694d9600e984ddffc94, type: 3}
+    volume: 100
+    loop: 0
+  gravityGunThrowSFX:
+    audioClip: {fileID: 8300000, guid: 1e9d03dac8446874a85769219147a773, type: 3}
+    volume: 100
+    loop: 0
+  buttonPressedSFX:
+    audioClip: {fileID: 8300000, guid: 2f98ce9bd8395e2438f6538490d65c34, type: 3}
+    volume: 60.8
+    loop: 0
+  buttonReleasedSFX:
+    audioClip: {fileID: 8300000, guid: 95381b5d6375298469a188ce80097b17, type: 3}
+    volume: 100
+    loop: 0
+  collisionSFX:
+  - audioClip: {fileID: 8300000, guid: 58536c9fb0f30434fbfcc2069ea1bad9, type: 3}
+    volume: 100
+    loop: 0
+  - audioClip: {fileID: 8300000, guid: cc19d3fca2ed0af4cb40149a56f8adeb, type: 3}
+    volume: 100
+    loop: 0
+  - audioClip: {fileID: 8300000, guid: 7cfe8afe7d4088247ae9a03f8a2606f3, type: 3}
+    volume: 100
+    loop: 0
+  - audioClip: {fileID: 8300000, guid: 2ac8df9f304de994285b2aa863ccb07d, type: 3}
+    volume: 100
+    loop: 0

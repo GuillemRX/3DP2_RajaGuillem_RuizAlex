@@ -7,7 +7,7 @@ namespace GravityGun
     {
         public static bool RayCastGravityObject(Ray ray, out RaycastHit hit)
         {
-            return Physics.Raycast(ray, out hit) && PortalUtilities.MatchLayers(hit.collider.gameObject.layer,
+            return Physics.Raycast(ray, out hit, GameSettings.Instance.gravityGunGrabbingDistance) && PortalUtilities.MatchLayers(hit.collider.gameObject.layer,
                 GameSettings.Instance.entitiesAffectedByGravityGun);
         }
 

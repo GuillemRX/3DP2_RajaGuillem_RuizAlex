@@ -12,12 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 204ffb61949cc3a43862dc38c62c1f49, type: 3}
   m_Name: Events
   m_EditorClassIdentifier: 
+  onTeleportObject: 0
+  onObjectCollision: 1
   inputActions:
-    onLook: 0
-    onMove: 1
-    onJump: 2
-    onLeftClick: 3
-    onRightClick: 4
-    onScroll: 11
-  onTeleportObject: 10
-  onButtonPressed: 100
+    onLook: 101
+    onMove: 102
+    onJump: 103
+    onLeftClick: 104
+    onRightClick: 105
+    onScroll: 106
+  playerActions:
+    onPreviewBluePortal: 201
+    onPreviewOrangePortal: 202
+    onPlaceBluePortal: 203
+    onPlaceOrangePortal: 204
+    onGravityGunGrab: 205
+    onGravityGunThrow: 206
+    onGravityGunDrop: 207

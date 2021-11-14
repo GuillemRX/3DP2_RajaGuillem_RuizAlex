@@ -7,9 +7,10 @@ namespace Player
     public class PlayerAnimationController : MonoBehaviour
     {
         [SerializeField] private Animator animator;
-        [SerializeField] private CharacterController controller;
 
         [SerializeField] [ReadOnly] private AnimationState _currentState;
+
+        private GroundDetector _groundDetector;
 
         private readonly AnimationHashes _animations = new AnimationHashes
         {
@@ -32,6 +33,7 @@ namespace Player
 
         private void Awake()
         {
+            _groundDetector = GetComponentInChildren<GroundDetector>();
             _playerDirection = Vector2.zero;
             _stateMachine = InitStateMachine();
             _stateMachine.CurrentState = AnimationState.Idle;
@@ -65,7 +67,7 @@ namespace Player
             const float threshold = 0.1f;
             var velocity = _playerDirection;
 
-            return controller.isGrounded switch
+            return _groundDetector.IsGrounded switch
             {
                 false => AnimationState.Jump,
                 _ => (velocity.y > threshold) switch
